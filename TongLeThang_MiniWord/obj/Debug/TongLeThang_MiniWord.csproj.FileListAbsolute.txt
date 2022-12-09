@@ -1,0 +1,11 @@
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\bin\Debug\TongLeThang_MiniWord.exe.config
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\bin\Debug\TongLeThang_MiniWord.exe
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\bin\Debug\TongLeThang_MiniWord.pdb
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.csproj.AssemblyReference.cache
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.csproj.SuggestedBindingRedirects.cache
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.Properties.Resources.resources
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.csproj.GenerateResource.cache
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.csproj.CoreCompileInputs.cache
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.exe
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.pdb
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.frmThang.resources
