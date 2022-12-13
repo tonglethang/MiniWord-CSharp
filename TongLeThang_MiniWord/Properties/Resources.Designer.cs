@@ -83,6 +83,16 @@ namespace TongLeThang_MiniWord.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconcenter1 {
+            get {
+                object obj = ResourceManager.GetObject("iconcenter1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconclose {
             get {
                 object obj = ResourceManager.GetObject("iconclose", resourceCulture);
@@ -173,6 +183,16 @@ namespace TongLeThang_MiniWord.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconhighlinght {
+            get {
+                object obj = ResourceManager.GetObject("iconhighlinght", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconi {
             get {
                 object obj = ResourceManager.GetObject("iconi", resourceCulture);
@@ -233,9 +253,29 @@ namespace TongLeThang_MiniWord.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconin {
+            get {
+                object obj = ResourceManager.GetObject("iconin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconleft {
             get {
                 object obj = ResourceManager.GetObject("iconleft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconleft1 {
+            get {
+                object obj = ResourceManager.GetObject("iconleft1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +316,16 @@ namespace TongLeThang_MiniWord.Properties {
         internal static System.Drawing.Bitmap iconopen2 {
             get {
                 object obj = ResourceManager.GetObject("iconopen2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconout {
+            get {
+                object obj = ResourceManager.GetObject("iconout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +396,26 @@ namespace TongLeThang_MiniWord.Properties {
         internal static System.Drawing.Bitmap iconsaveas {
             get {
                 object obj = ResourceManager.GetObject("iconsaveas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconsearch {
+            get {
+                object obj = ResourceManager.GetObject("iconsearch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconselect {
+            get {
+                object obj = ResourceManager.GetObject("iconselect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -124,14 +124,23 @@
   <data name="iconsave2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconsave2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="iconleft1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconleft1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconcut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconcut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconfont" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconfont.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconcenter1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconcenter1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconsave1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconsave1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,20 +172,26 @@
   <data name="iconi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconcenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconcenter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconopen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconopen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconfontcolor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfontcolor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconcenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconcenter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconnew" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconnew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconcolor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconcolor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconsearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconsearch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconclose1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconclose1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,6 +208,9 @@
   <data name="iconopen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconopen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="iconsaveas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconsaveas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconi2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,10 +223,13 @@
   <data name="iconclose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconclose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconfontcolor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconfontcolor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconsaveas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconsaveas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconhighlinght" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconhighlinght.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconselect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconselect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

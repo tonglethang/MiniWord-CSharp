@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -23,7 +24,6 @@ namespace TongLeThang_MiniWord
 /*        bool Ktra = false;*/
         String path = "";
         bool check = false;
-/*        private bool checkFile = false;*/
         private string pathTmp = "";
         private void saveFile()
         {
@@ -32,8 +32,6 @@ namespace TongLeThang_MiniWord
 
             if (type.ShowDialog() == DialogResult.OK)
             {
-
-
                 path = type.FileName;
                 if (path != "")
                 {
@@ -63,7 +61,7 @@ namespace TongLeThang_MiniWord
             {
                 cbbFontSize.Items.Add(i.ToString());
             }
-            cbbFontSize.SelectedItem = 12;
+            cbbFontSize.SelectedItem = 15;
         }
 
         private void ReadFont()
@@ -80,34 +78,55 @@ namespace TongLeThang_MiniWord
 
         }
         string fontName = "Times new roman";
-        float fontSize = 13;
+        float fontSize = 15;
         private void cbbFontText_SelectedIndexChanged(object sender, EventArgs e)
         {
-             fontName = cbbFontText.SelectedItem.ToString();
-             fontSize = float.Parse(cbbFontSize.SelectedItem.ToString());
-             richText.SelectionFont = new Font(fontName, fontSize);
+            fontName = cbbFontText.SelectedItem.ToString();
+            richText.SelectionFont = new Font(fontName, fontSize, (checkBold ? FontStyle.Bold : 0) | (checkUnderline ? FontStyle.Underline : 0 ) | (checkItalic ? FontStyle.Italic : 0));
         }
 
         private void cbbFontSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fontName = cbbFontText.SelectedItem.ToString();
             fontSize = float.Parse(cbbFontSize.SelectedItem.ToString());
-            richText.SelectionFont = new Font(fontName, fontSize);
+            richText.SelectionFont = new Font(fontName, fontSize, (checkBold ? FontStyle.Bold : 0) | (checkUnderline ? FontStyle.Underline : 0) | (checkItalic ? FontStyle.Italic : 0));
         }
 
         private void toolStripButton12_Click(object sender, EventArgs e)
         {
             ColorDialog color = new ColorDialog();
-            color.ShowDialog();
-            btnFontColor.BackColor = color.Color;
-            richText.SelectionColor = color.Color;
+            if(color.ShowDialog() == DialogResult.OK)
+            {
+                btnFontColor.BackColor = color.Color;
+                richText.SelectionColor = color.Color;
+            }
         }
-
+        private void btnHighLight_Click(object sender, EventArgs e)
+        {
+            ColorDialog color = new ColorDialog();
+            if (color.ShowDialog() == DialogResult.OK)
+            {
+                btnFontColor.BackColor = color.Color;
+                richText.SelectionBackColor = color.Color;
+            }
+        }
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             check = false;
+            pathTmp = "";
             richText.Visible = true;
             richText.Text = String.Empty;
+            richText.SelectionFont = new Font(fontName, fontSize);
+            richText.SelectionAlignment = HorizontalAlignment.Left;
+            richText.ForeColor = Color.Black;
+            btnBold.BackColor = Color.Transparent;
+            btnItalic.BackColor = Color.Transparent;
+            btnUnderline.BackColor = Color.Transparent;
+            btnLeft.BackColor = Color.Aqua;
+            btnRight.BackColor = Color.Transparent;
+            btnCenter.BackColor = Color.Transparent;
+            btnFontColor.BackColor = Color.Transparent;
+            btnFontColor.BackColor = Color.Transparent;
+            btnHighLight.BackColor = Color.Transparent;
         }
 
         private void menuSaveAs_Click(object sender, EventArgs e)
@@ -138,6 +157,7 @@ namespace TongLeThang_MiniWord
             {
                 saveFile();
             }
+            checkSave = true;
         }
 
         private void menuClose_Click(object sender, EventArgs e)
@@ -145,10 +165,41 @@ namespace TongLeThang_MiniWord
             richText.Visible = false;
             check = false;
         }
+        bool checkSave = true;
+        private void richText_TextChanged(object sender, EventArgs e)
+        {
+            checkSave = false;
+        }
+        private void frmThang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!checkSave)
+            {
+                if (!check && richText.TextLength > 0)
+                {
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu file ?\n", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        saveFile();
+                        
+                    }
+                    Application.Exit();
+                }
+                else
+                {
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn thoát chương trình ?",
+                         "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        richText.SaveFile(pathTmp);
+                        Application.Exit();
+                    }
 
+                }
+            }
+        }
         private void menuExit_Click(object sender, EventArgs e)
         {
-            if (!check)
+            if (!check && richText.TextLength > 0)
             {
                 DialogResult dlr =  MessageBox.Show("Bạn có muốn lưu file ?\n", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlr == DialogResult.Yes)
@@ -160,7 +211,7 @@ namespace TongLeThang_MiniWord
             }
             else
             {
-                DialogResult dlr = MessageBox.Show("Bạn muốn thoát chương trình ?",
+                DialogResult dlr = MessageBox.Show("Bạn có muốn thoát chương trình ?",
                      "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlr == DialogResult.Yes)
                 {
@@ -201,5 +252,146 @@ namespace TongLeThang_MiniWord
             if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
                 richText.Paste();
         }
+
+        private void menuUndo_Click(object sender, EventArgs e)
+        {
+            richText.Undo();
+        }
+
+        private void menuRedo_Click(object sender, EventArgs e)
+        {
+            richText.Redo();
+        }
+        bool checkBold = false;
+        bool checkUnderline = false;
+        bool checkItalic = false;
+        private void btnBold_Click(object sender, EventArgs e)
+        {
+            if (!checkBold)
+            {
+                btnBold.BackColor = Color.Aqua;
+                richText.SelectionFont = new Font(fontName, fontSize, (FontStyle.Bold | (checkItalic ? FontStyle.Italic : 0) | (checkUnderline ? FontStyle.Underline : 0)));
+                checkBold = true;
+            }
+            else
+            {
+                btnBold.BackColor = Color.Transparent;
+                richText.SelectionFont = new Font(fontName, fontSize, (FontStyle.Regular | (checkItalic ? FontStyle.Italic : 0) | (checkUnderline ? FontStyle.Underline : 0)));
+                checkBold = false;
+            }
+        }
+
+        private void btnUnderline_Click(object sender, EventArgs e)
+        {
+            if (!checkUnderline)
+            {
+                btnUnderline.BackColor = Color.Aqua;
+                richText.SelectionFont = new Font(fontName, fontSize, (FontStyle.Underline | (checkItalic ? FontStyle.Italic : 0) | (checkBold ? FontStyle.Bold : 0)));
+                checkUnderline = true;
+            }
+            else
+            {
+                btnUnderline.BackColor = Color.Transparent;
+                richText.SelectionFont = new Font(fontName, fontSize, (FontStyle.Regular | (checkItalic ? FontStyle.Italic : 0) | (checkBold ? FontStyle.Bold : 0)));
+                checkUnderline = false;
+            }
+        }
+
+        private void btnItalic_Click(object sender, EventArgs e)
+        {
+            if (!checkItalic)
+            {
+                btnItalic.BackColor = Color.Aqua;
+                richText.SelectionFont = new Font(fontName, fontSize, (FontStyle.Italic | (checkUnderline ? FontStyle.Underline : 0) | (checkBold ? FontStyle.Bold : 0)));
+                checkItalic = true;
+            }
+            else
+            {
+                btnItalic.BackColor = Color.Transparent;
+                richText.SelectionFont = new Font(fontName, fontSize, (FontStyle.Regular| (checkUnderline ? FontStyle.Underline : 0) | (checkBold ? FontStyle.Bold : 0)));
+                checkItalic = false;
+            }
+        }
+        bool checkLeft = false;
+        bool checkRight = false;
+        bool checkCenter = false;
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            if (!checkLeft)
+            {
+                richText.SelectionAlignment = HorizontalAlignment.Left;
+                btnLeft.BackColor = Color.Aqua;
+                btnCenter.BackColor = Color.Transparent;
+                btnRight.BackColor = Color.Transparent;
+                checkLeft = true;
+                checkCenter = false;
+                checkRight = false;
+            }
+    
+        }
+
+        private void btnCenter_Click(object sender, EventArgs e)
+        {
+            if (!checkCenter)
+            {
+                richText.SelectionAlignment = HorizontalAlignment.Center;
+                btnCenter.BackColor = Color.Aqua;
+                btnLeft.BackColor = Color.Transparent;
+                btnRight.BackColor = Color.Transparent;
+                checkLeft = false;
+                checkCenter = true;
+                checkRight = false;
+            }
+        
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            if (!checkRight)
+            {
+                richText.SelectionAlignment = HorizontalAlignment.Right;
+                btnRight.BackColor = Color.Aqua;
+                btnLeft.BackColor = Color.Transparent;
+                btnCenter.BackColor = Color.Transparent;
+                checkLeft = false;
+                checkCenter = false;
+                checkRight = true;
+            }
+     
+        }
+        float zoom = 1;
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            if(zoom >= 80)
+            {
+                zoom = 80;
+            }
+            else
+            {
+                zoom += 2;
+                richText.ZoomFactor = zoom;
+            }
+        }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            if (zoom <= 1)
+            {
+                zoom = 1;
+            }
+            else
+            {
+                zoom -= 2;
+                richText.ZoomFactor = zoom;
+            }
+        }
+
+        private void menuFind_Click(object sender, EventArgs e)
+        {
+            frmFind frmFind = new frmFind(richText, this);
+            frmFind.Show();
+        }
+
+
     }
 }

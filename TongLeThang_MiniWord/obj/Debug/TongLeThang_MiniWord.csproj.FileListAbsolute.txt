@@ -9,3 +9,4 @@ D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeT
 D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.exe
 D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.pdb
 D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.frmThang.resources
+D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\obj\Debug\TongLeThang_MiniWord.frmFind.resources
