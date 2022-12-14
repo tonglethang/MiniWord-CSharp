@@ -76,6 +76,7 @@
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
+            this.txtFileName = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -471,9 +472,9 @@
             // 
             this.richText.ContextMenuStrip = this.contextMenuStrip1;
             this.richText.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richText.Location = new System.Drawing.Point(37, 74);
+            this.richText.Location = new System.Drawing.Point(37, 75);
             this.richText.Name = "richText";
-            this.richText.Size = new System.Drawing.Size(826, 751);
+            this.richText.Size = new System.Drawing.Size(826, 750);
             this.richText.TabIndex = 2;
             this.richText.Text = "";
             this.richText.TextChanged += new System.EventHandler(this.richText_TextChanged);
@@ -533,17 +534,29 @@
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.MouseLeave += new System.EventHandler(this.listView1_MouseLeave);
             // 
+            // txtFileName
+            // 
+            this.txtFileName.AutoSize = true;
+            this.txtFileName.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtFileName.Location = new System.Drawing.Point(794, 56);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(69, 16);
+            this.txtFileName.TabIndex = 4;
+            this.txtFileName.Text = "File Name";
+            // 
             // frmThang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(902, 873);
+            this.Controls.Add(this.txtFileName);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.richText);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmThang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MiniWord";
@@ -608,6 +621,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuSelectAll;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label txtFileName;
     }
 }
 

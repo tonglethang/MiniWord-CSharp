@@ -6,6 +6,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace TongLeThang_MiniWord
 /*        bool Ktra = false;*/
         String path = "";
         bool check = false;
+        bool checkSave = true;
         private string pathTmp = "";
         private void saveFile()
         {
@@ -110,9 +112,31 @@ namespace TongLeThang_MiniWord
                 richText.SelectionBackColor = color.Color;
             }
         }
+        bool checkText = false;
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!checkSave && !checkText)
+            {
+                if (!check)
+                {
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu file ?\n", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        saveFile();
+                    }
+                }
+                else
+                {
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu các thay đổi ?",
+                        "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        richText.SaveFile(pathTmp);
+                    }
+                }
+            }
             check = false;
+            checkText = false;
             pathTmp = "";
             richText.Visible = true;
             richText.Text = String.Empty;
@@ -128,6 +152,8 @@ namespace TongLeThang_MiniWord
             btnFontColor.BackColor = Color.Transparent;
             btnFontColor.BackColor = Color.Transparent;
             btnHighLight.BackColor = Color.Transparent;
+            checkSave = true;
+
         }
 
         private void menuSaveAs_Click(object sender, EventArgs e)
@@ -160,7 +186,6 @@ namespace TongLeThang_MiniWord
             }
             checkSave = true;
         }
-
         private void menuClose_Click(object sender, EventArgs e)
         {
             if (!checkSave)
@@ -173,12 +198,12 @@ namespace TongLeThang_MiniWord
                         saveFile();
                         richText.Visible = false;
                         check = false;
+                        checkText = true;
                     }
-                    else
-                    {
-                        richText.Visible = false;
-                        check = false;
-                    }
+                    richText.Visible = false;
+                    check = false;
+                    checkText = true;
+                    checkSave = true;
                 }
                 else
                 {
@@ -189,21 +214,20 @@ namespace TongLeThang_MiniWord
                             richText.SaveFile(pathTmp);
                             richText.Visible = false;
                             check = false;
-                         }
-                        else
-                         {
-                            richText.Visible = false;
-                            check = false;
-                        }
+                            checkText = true;
+                            checkSave = true;
+                    }
+                        richText.Visible = false;
+                        check = false;
+                        checkText = true;
                 }
             }
-            else
-            {
-                richText.Visible = false;
-                check = false;
-            }
+            richText.Visible = false;
+            check = false;
+            checkText = true;
+            checkSave = true;
         }
-        bool checkSave = true;
+ 
         private void richText_TextChanged(object sender, EventArgs e)
         {
             checkSave = false;
@@ -235,12 +259,12 @@ namespace TongLeThang_MiniWord
                          "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dlr == DialogResult.Yes)
                     {
-                        richText.SaveFile(pathTmp);
-                        Application.Exit();
+                        richText.SaveFile(path);
                     }
 
                 }
             }
+
         }
 
         private void frmThang_FormClosed(object sender, FormClosedEventArgs e)
