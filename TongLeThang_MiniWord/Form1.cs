@@ -10,6 +10,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TongLeThang_MiniWord
 {
@@ -105,7 +106,7 @@ namespace TongLeThang_MiniWord
             ColorDialog color = new ColorDialog();
             if (color.ShowDialog() == DialogResult.OK)
             {
-                btnFontColor.BackColor = color.Color;
+                btnHighLight.BackColor = color.Color;
                 richText.SelectionBackColor = color.Color;
             }
         }
@@ -162,8 +163,45 @@ namespace TongLeThang_MiniWord
 
         private void menuClose_Click(object sender, EventArgs e)
         {
-            richText.Visible = false;
-            check = false;
+            if (!checkSave)
+            {
+                if(!check && richText.TextLength > 0)
+                {
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu file ?\n", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        saveFile();
+                        richText.Visible = false;
+                        check = false;
+                    }
+                    else
+                    {
+                        richText.Visible = false;
+                        check = false;
+                    }
+                }
+                else
+                {
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu các thay đổi ?",
+                        "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dlr == DialogResult.Yes)
+                        {
+                            richText.SaveFile(pathTmp);
+                            richText.Visible = false;
+                            check = false;
+                         }
+                        else
+                         {
+                            richText.Visible = false;
+                            check = false;
+                        }
+                }
+            }
+            else
+            {
+                richText.Visible = false;
+                check = false;
+            }
         }
         bool checkSave = true;
         private void richText_TextChanged(object sender, EventArgs e)
@@ -176,17 +214,24 @@ namespace TongLeThang_MiniWord
             {
                 if (!check && richText.TextLength > 0)
                 {
-                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu file ?\n", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu file ?\n", "Thông báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (dlr == DialogResult.Yes)
                     {
                         saveFile();
-                        
                     }
-                    Application.Exit();
+                    else if (dlr == DialogResult.No)
+                    {
+
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+
                 }
                 else
                 {
-                    DialogResult dlr = MessageBox.Show("Bạn có muốn thoát chương trình ?",
+                    DialogResult dlr = MessageBox.Show("Bạn có muốn lưu các thay đổi ?",
                          "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dlr == DialogResult.Yes)
                     {
@@ -197,29 +242,14 @@ namespace TongLeThang_MiniWord
                 }
             }
         }
+
+        private void frmThang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         private void menuExit_Click(object sender, EventArgs e)
         {
-            if (!check && richText.TextLength > 0)
-            {
-                DialogResult dlr =  MessageBox.Show("Bạn có muốn lưu file ?\n", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dlr == DialogResult.Yes)
-                {
-                    saveFile();
-                    Application.Exit();
-                }
-                Application.Exit();
-            }
-            else
-            {
-                DialogResult dlr = MessageBox.Show("Bạn có muốn thoát chương trình ?",
-                     "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dlr == DialogResult.Yes)
-                {
-                    richText.SaveFile(pathTmp);
-                    Application.Exit();
-                }
-
-            }
+            this.Close();
         }
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -392,6 +422,60 @@ namespace TongLeThang_MiniWord
             frmFind.Show();
         }
 
+        private void menuSelectAll_Click(object sender, EventArgs e)
+        {
+            richText.SelectAll();
+        }
 
+        private void iconToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo dir = new DirectoryInfo(@"D:\Documents\WinForm\TongLeThang_MiniWord\TongLeThang_MiniWord\icon");
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                try
+                {
+                    this.imageList1.Images.Add(Image.FromFile(file.FullName));
+                }
+                catch
+                {
+                    Console.WriteLine("This is not an image file");
+                }
+            }
+            this.listView1.View = View.LargeIcon;
+            this.imageList1.ImageSize = new Size(32, 32);
+            this.listView1.LargeImageList = this.imageList1;
+
+            for (int j = 0; j < this.imageList1.Images.Count; j++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = j;
+                this.listView1.Items.Add(item);
+            }
+
+            listView1.Visible = true;
+        }
+        int pos = 0;
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (listView1.FocusedItem == null) return;
+                pos = listView1.SelectedIndices[0];
+                Clipboard.SetImage(imageList1.Images[pos]);
+                richText.Paste();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            listView1.Visible = false;
+        }
+
+        private void listView1_MouseLeave(object sender, EventArgs e)
+        {
+            listView1.Visible = false;
+        }
     }
 }

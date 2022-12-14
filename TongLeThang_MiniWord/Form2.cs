@@ -83,5 +83,10 @@ namespace TongLeThang_MiniWord
             if (i != 0)
                 richTxt.Text = richTxt.Text.Replace(txtFind.Text, txtReplace.Text);
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

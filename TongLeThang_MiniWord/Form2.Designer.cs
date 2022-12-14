@@ -82,7 +82,7 @@
             // 
             this.btnNext.Location = new System.Drawing.Point(448, 29);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(86, 28);
+            this.btnNext.Size = new System.Drawing.Size(112, 28);
             this.btnNext.TabIndex = 4;
             this.btnNext.Text = "Find next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             // 
             this.btnReplace.Location = new System.Drawing.Point(448, 76);
             this.btnReplace.Name = "btnReplace";
-            this.btnReplace.Size = new System.Drawing.Size(86, 28);
+            this.btnReplace.Size = new System.Drawing.Size(112, 28);
             this.btnReplace.TabIndex = 5;
             this.btnReplace.Text = "Replace";
             this.btnReplace.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             // 
             this.btnReplaceAll.Location = new System.Drawing.Point(448, 123);
             this.btnReplaceAll.Name = "btnReplaceAll";
-            this.btnReplaceAll.Size = new System.Drawing.Size(86, 28);
+            this.btnReplaceAll.Size = new System.Drawing.Size(112, 28);
             this.btnReplaceAll.TabIndex = 6;
             this.btnReplaceAll.Text = "Replace all";
             this.btnReplaceAll.UseVisualStyleBackColor = true;
@@ -112,10 +112,11 @@
             // 
             this.btnCancel.Location = new System.Drawing.Point(448, 170);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 28);
+            this.btnCancel.Size = new System.Drawing.Size(112, 28);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // cbWhole
             // 
